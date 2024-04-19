@@ -2,7 +2,7 @@ from typing import List, Dict, Optional, Union, Literal, Any
 from alana.color import red, yellow
 import re
 import os
-from anthropic import Anthropic
+import anthropic
 from anthropic.types import Message, MessageParam
 from alana import globals
 
@@ -161,7 +161,7 @@ def gen_msg(messages: List[MessageParam], system: str = "", model: str = globals
 
     if api_key is None:
         api_key = os.environ.get("ANTHROPIC_API_KEY")
-    client = Anthropic(
+    client = anthropic.Anthropic(
         api_key=api_key,
     )
 
